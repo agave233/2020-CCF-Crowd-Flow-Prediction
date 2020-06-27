@@ -1,7 +1,11 @@
 - #### 赛题简介
     * **背景**：2019新型冠状病毒（COVID-19）感染的肺炎疫情发生对人们生活生产的方方面面产生了重要影响。人口的流动聚集，客观上加大了疫情传播的风险和防控的难度。出于对公共卫生、重大公共利益相关影响的为研究目的，为进一步掌握人员流动聚集动向，针对疫情相关的做重点区域人群聚集密度预测。
-    * **任务**：选取北京市若干不同类别的重点区域，提供各区域历史多天分小时人群密度数据。同时，提供北京六环内历史多天分小时的网格（200*200）人群密度、北京市迁入和迁出指数、网格间联系强度指数，预测接下来每天分小时北京市重点区域的人群密度。评分指标基于RMSE，具体公式如下：</br>
-    ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-1.svg?raw=true)
+    * **任务**：选取北京市若干不同类别的重点区域，提供各区域历史多天分小时人群密度数据。同时，提供北京六环内历史多天分小时的网格（200*200）人群密度、北京市迁入和迁出指数、网格间联系强度指数，预测接下来每天分小时北京市重点区域的人群密度。评分指标基于RMSE，具体公式如下：
+    <!-- ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-1.svg?raw=true) -->
+    <div align="center">  
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-1.svg?raw=true"/>
+    </div>
+
     * **成绩**：初赛：2/1009（A榜得分0.15482，B榜得分0.1397）；决赛：rank 1
     * **比赛地址**：https://www.datafountain.cn/competitions/428
 
@@ -129,8 +133,8 @@
     </div>
 
 - #### 参考
-    [1] Tianqi Chen and Carlos Guestrin. XGBoost: A Scalable Tree Boosting System. In 22nd SIGKDD Conference on Knowledge Discovery and Data Mining, 2016
-    [2] Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma, Qiwei Ye, Tie-Yan Liu. "LightGBM: A Highly Efficient Gradient Boosting Decision Tree". Advances in Neural Information Processing Systems 30 (NIPS 2017), pp. 3149-3157.
-    [3] dropout, 时间序列规则法快速入门, https://www.jianshu.com/p/31e20f00c26f
+    [1] Tianqi Chen and Carlos Guestrin. XGBoost: A Scalable Tree Boosting System. In 22nd SIGKDD Conference on Knowledge Discovery and Data Mining, 2016  </br>
+    [2] Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma, Qiwei Ye, Tie-Yan Liu. "LightGBM: A Highly Efficient Gradient Boosting Decision Tree". Advances in Neural Information Processing Systems 30 (NIPS 2017), pp. 3149-3157.  </br>
+    [3] dropout, 时间序列规则法快速入门, https://www.jianshu.com/p/31e20f00c26f  </br>
     [4] Zhang J , Zheng Y , Qi D . Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction[J]. 2016.
 
