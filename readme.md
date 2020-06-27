@@ -81,8 +81,9 @@
     **2.4 小时级别的人群密度预测**
     使用LightGBM[1]和XGBoost[2]两个回归树模型分别对结果进行预测，对结果进行融合。分别用p和q表示h小时对应的两个模型，则第i个区域在第d天h小时的人群密度预测值为：
 
-    </br>
-    ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-2.svg?raw=true)
+    <div align="center">  
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-2.svg?raw=true"/>
+    </div>
 
     其中g的增长趋势因子，在下一节的规则模型会介绍到。因为由于训练数据的时间范围很短，难以将趋势信息提取并使用回归树模型训练，所以预测的结果不完全满足区域人群密度的增长趋势，为了克服这一问题我们对回归树预测的结果乘上趋势因子以获得更准确的预测结果。
      ###### 3. 规则模型
@@ -99,8 +100,10 @@
     </div>
 
     growth表示的是区域i最近一周呈现出的增长趋势，开根号进行趋势平滑，其中Sh表示时间h所在的集合，E1表示预测天的前一周的天数集合，E2表示E1的前一周的天数集合。为了增强趋势因子的鲁棒性，我们还考虑了区域所属类型的增长趋势因子，加权得到最终区域i的增长趋势因子为：
-    </br>
-    ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-4.svg?raw=true)
+    
+    <div align="center">  
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-4.svg?raw=true"/>
+    </div>
 
     w0,w1,w2是三个加权参数，满足w0+w1+w2=1，第一项表示单个区域计算得到的趋势因子，第二项表示区域所属类型1的所有区域平均趋势因子，第三项表示区域所属类型2的所有区域平均趋势因子（如北京南站的类型是“交通设施；火车站”，其类型1是“交通设施”，类型2是“火车站”）。
 
@@ -108,18 +111,23 @@
     3.2 基础人群密度
 
     我们选择最近三天的平均人群密度base和回归树模型预测的第一天人群密度base进行加权作为基础人群密度，计算公式如下：
-    </br>
-    ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-5.svg?raw=true)
+    
+    <div align="center">  
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-5.svg?raw=true"/>
+    </div>
 
     3.3 周和天级别的周期因子_
     周级别的周期因子是一周七天为周期的分布系数，我们选择的是最近一周的周期分布系数作为预测的周期因子（也尝试过最近两周并且进行加权融合，但效果不如最近一周的效果好），计算公式如下：
-    </br>
-    ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-6.svg?raw=true)
+    
+    <div align="center">  
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-6.svg?raw=true"/>
+    </div>
 
     天级别的周期因子是一天24小时为周期的分布系数，考虑到周末和工作日的出行活动差别较大，分别对工作日和周末的24小时统计的分布系数求平均得到对应天级别的周期因子：
 
-    </br>
-    ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-7.svg?raw=true)
+    <div align="center">  
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-7.svg?raw=true"/>
+    </div>
 
      ###### 4. 模型融合
     在实验中我们发现回归树模型预测周末人群密度的效果很好，但工作日预测效果相对较差，所以我们去掉训练数据的周末后又按照同样的训练回归树模型预测工作日的人群密度。最后对回归树模型的预测结果和规则模型的预测结果进行加权融合。规则模型和回归树模型两种建模方式侧重点不同，从两个维度方向去预测，融合后准确率有明显的提升。此外，由于预测的是未来9天的人群密度，而周期性为7天，所以我们用前两天的预测结果乘上趋势因子作为最后两天的预测结果，从而避免连续预测的误差传递问题。
