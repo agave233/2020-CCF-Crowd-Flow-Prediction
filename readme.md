@@ -90,10 +90,8 @@
     3.1 增长趋势因子
     由之前的数据分析可知，一个区域在不同时间段的增长趋势不同（比如白天增长趋势明显，但夜间相对稳定），所以在计算增长趋势因子时我们将一天24小时划分为三个集合，分别为S_1=\{23,0,1,2,3,4,5,6\},S_2=\{7,8,9,19,20,21,22\},S_3=\{10,11,12,13,14,15,16,17,18\}。S1集合包含23点到早上6点，在这个时间段活动人群最少，其人群密度相对稳定；S2集合包含早上6点到8点和晚上19点到22点，这个时间段人们开始出行活动和回家，其人群密度有一定的趋势性；S3集合包含早上10点到下午18点，这个时间段是人们活动的主要时间，其人群密度呈现出明显的趋势性。计算公式如下：
 
-    </br>
-    ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-3.svg?raw=true)
     <div align="center">  
-     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-3.svg?raw=true" width="400" height="271"/>
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-3.svg?raw=true"/>
     </div>
 
     growth表示的是区域i最近一周呈现出的增长趋势，开根号进行趋势平滑，其中Sh表示时间h所在的集合，E1表示预测天的前一周的天数集合，E2表示E1的前一周的天数集合。为了增强趋势因子的鲁棒性，我们还考虑了区域所属类型的增长趋势因子，加权得到最终区域i的增长趋势因子为：
@@ -132,10 +130,7 @@
 
 - #### 参考
     [1] Tianqi Chen and Carlos Guestrin. XGBoost: A Scalable Tree Boosting System. In 22nd SIGKDD Conference on Knowledge Discovery and Data Mining, 2016
-
     [2] Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma, Qiwei Ye, Tie-Yan Liu. "LightGBM: A Highly Efficient Gradient Boosting Decision Tree". Advances in Neural Information Processing Systems 30 (NIPS 2017), pp. 3149-3157.
-
     [3] dropout, 时间序列规则法快速入门, https://www.jianshu.com/p/31e20f00c26f
-    
     [4] Zhang J , Zheng Y , Qi D . Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction[J]. 2016.
 
