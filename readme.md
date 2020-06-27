@@ -92,6 +92,9 @@
 
     </br>
     ![eq1.svg](https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-3.svg?raw=true)
+    <div align="center">  
+     <img src="https://github.com/agave233/2020-CCF-Crowd-Flow-Prediction/raw/master/img/equation-3.svg?raw=true" width="400" height="271"/>
+    </div>
 
     growth表示的是区域i最近一周呈现出的增长趋势，开根号进行趋势平滑，其中Sh表示时间h所在的集合，E1表示预测天的前一周的天数集合，E2表示E1的前一周的天数集合。为了增强趋势因子的鲁棒性，我们还考虑了区域所属类型的增长趋势因子，加权得到最终区域i的增长趋势因子为：
     </br>
@@ -129,7 +132,10 @@
 
 - #### 参考
     [1] Tianqi Chen and Carlos Guestrin. XGBoost: A Scalable Tree Boosting System. In 22nd SIGKDD Conference on Knowledge Discovery and Data Mining, 2016
+
     [2] Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma, Qiwei Ye, Tie-Yan Liu. "LightGBM: A Highly Efficient Gradient Boosting Decision Tree". Advances in Neural Information Processing Systems 30 (NIPS 2017), pp. 3149-3157.
+
     [3] dropout, 时间序列规则法快速入门, https://www.jianshu.com/p/31e20f00c26f
+    
     [4] Zhang J , Zheng Y , Qi D . Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction[J]. 2016.
 
