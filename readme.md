@@ -9,7 +9,8 @@
     * **成绩**：初赛：2/1009（A榜得分0.15482，B榜得分0.1397）；决赛：rank 1
     * **比赛地址**：https://www.datafountain.cn/competitions/428
 
-  
+- #### 数据下载地址
+    [百度网盘链接](https://pan.baidu.com/s/1wvMQRnwfixa3lZieNJS96g)（密码:0lsy）
 
 - #### 难点与挑战   
     1. **时间序列长期预测的困难性**
